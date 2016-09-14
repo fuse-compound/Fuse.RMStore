@@ -284,7 +284,8 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         int GetWebOrderLineItemID()
         @{
-            return (@{int})[@{ReceiptTransactionInfo:Of(_this)._handle} webOrderLineItemID];
+            NSInteger* liid = (NSInteger*)[@{ReceiptTransactionInfo:Of(_this)._handle} webOrderLineItemID];
+            return (@{int})liid;
         @}
     }
 }
