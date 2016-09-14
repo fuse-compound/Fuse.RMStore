@@ -155,6 +155,8 @@ namespace Fuse.URMStore
         public static Scripting.Object SKProductInformationToJS(Context c, SKProductInformation pid)
         {
             var res = c.NewObject();
+            res["price"] = pid.Price;
+            res["priceLocale"] = pid.PriceLocale;
             res["localizedDescription"] = pid.LocalizedDescription;
             res["productIdentifier"] = pid.ProductIdentifier;
             res["localizedTitle"] = pid.LocalizedTitle;
