@@ -1,0 +1,14 @@
+{
+    "Projects": [
+        "../src/Fuse.RMStore.unoproj",
+    ],
+    "Packages": [
+        "Fuse",
+        "FuseJS",
+        "FuseCore",
+        "Fuse.Scripting"
+    ],
+    "Includes": [
+        "*",
+    ]
+}
