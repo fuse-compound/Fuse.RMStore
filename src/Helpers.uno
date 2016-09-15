@@ -118,7 +118,7 @@ namespace Fuse.URMStore
 
         [Foreign(Language.ObjC)]
         extern(iOS)
-        public static string FormatDecimalAsPrice(ObjC.Object locale, ObjC.Object decimalNumber)
+        public static string FormatDecimalAsPrice(ObjC.Object decimalNumber, ObjC.Object locale)
         @{
             NSNumberFormatter* priceFormatter = (NSNumberFormatter*)@{GetPriceFormatter():Call()};
             NSLocale* priceLocale = (NSLocale*)locale;
