@@ -39,7 +39,7 @@
         module.exports.refreshReceipt = function()
         {
             console.log("- start refresh receipt -");
-            RMStore.restoreTransactions().then(function() {
+            RMStore.refreshReceipt().then(function() {
                 console.log("refreshing receipt succeeded");
             }).catch(function(e) {
                 console.log("refreshing receipt failed");
