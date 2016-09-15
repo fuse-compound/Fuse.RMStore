@@ -36,7 +36,7 @@
             });
         };
 
-        module.exports.refreshReciept = function()
+        module.exports.refreshReceipt = function()
         {
             console.log("- start refresh receipt -");
             RMStore.restoreTransactions().then(function() {
@@ -73,7 +73,7 @@
         <ScrollView>
             <StackPanel>
                 <Button Text="Can Make Payments?" Clicked="{canMakePayments}" Height="100" />
-                <Button Text="Refresh Receipt" Clicked="{refreshReciept}" Height="100" />
+                <Button Text="Refresh Receipt" Clicked="{refreshReceipt}" Height="100" />
                 <Button Text="Get Receipt Transactions" Clicked="{getReceiptTransactions}" Height="100" />
                 <Button Text="Request Products" Clicked="{requestProducts}" Height="100" />
                 <Button Text="Add Payment" Clicked="{addPayment}" Height="100" />
