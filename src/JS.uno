@@ -145,9 +145,11 @@ namespace Fuse.URMStore
         extern(iOS)
         static Future<KeyValuePair<IList<SKProductInformation>, IList<string>>> RequestProducts(object[] args)
         {
+            var jsIDs = (Scripting.Array)args[0];
             var ids = new List<string>();
-            foreach (var arg in args)
-                ids.Add((string)arg);
+
+            for (var i = 0; i < jsIDs.Length; i++)
+                ids.Add((string)jsIDs[i]);
 
             return Core.RequestProducts(ids);
         }

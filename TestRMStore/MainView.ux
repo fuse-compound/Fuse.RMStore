@@ -6,7 +6,7 @@
         module.exports.requestProducts = function()
         {
             console.log("- start request products -");
-            RMStore.requestProducts("testsubscription0").then(function(result) {
+            RMStore.requestProducts(["testsubscription0"]).then(function(result) {
                 console.log("Product request succeeded:");
                 console.log(JSON.stringify(result));
             }).catch(function(e) {
