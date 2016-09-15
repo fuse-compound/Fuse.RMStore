@@ -11,12 +11,6 @@ using Fuse.Controls.Native.Android;
 
 namespace Fuse.URMStore
 {
-    extern(!iOS)
-    public class Core
-    {
-        static public void Init() { }
-    }
-
     [Require("Cocoapods.Podfile.Target", "pod 'RMStore/AppReceiptVerificator'")]
     [ForeignInclude(Language.ObjC, "RMStore.h")]
     [ForeignInclude(Language.ObjC, "RMAppReceipt.h")]
