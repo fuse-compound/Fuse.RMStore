@@ -38,7 +38,7 @@ namespace Fuse.URMStore
                               "addPayment", AddPayment, SKPaymentTransactionInfoToJS));
                 AddMember(new NativePromise<IList<SKPaymentTransactionInfo>, Scripting.Array>(
                               "restoreTransactions", RestoreTransactions, ListOfSKPaymentTransactionInfoToJS));
-                AddMember(new NativePromise<string, string>("refreshReciept", RefreshReceipt));
+                AddMember(new NativePromise<string, string>("refreshReceipt", RefreshReceipt));
             }
 		}
 
