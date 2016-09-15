@@ -30,6 +30,8 @@ namespace Fuse.URMStore
 
                 AddMember(new NativeFunction("getReceiptTransactions", GetReceiptTransactions));
 
+                AddMember(new NativeFunction("getEncryptedReceiptAsBase64", GetEncryptedReceiptAsBase64));
+
                 AddMember(new NativePromise<KeyValuePair<IList<SKProductInformation>, IList<string>>, Scripting.Object>(
                               "requestProducts", RequestProducts, ListOfSKProductInformationToJS));
                 AddMember(new NativePromise<SKPaymentTransactionInfo, Scripting.Object>(
@@ -46,6 +48,14 @@ namespace Fuse.URMStore
         static bool CanMakePayments()
         {
             return Core.CanMakePayments;
+        }
+
+        //----------------------------------------------------------------------
+
+        extern(iOS)
+        static string GetEncryptedReceiptAsBase64(Context c, object[] args)
+        {
+            return Core.GetEncryptedReceiptAsBase64();
         }
 
         //----------------------------------------------------------------------

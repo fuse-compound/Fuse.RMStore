@@ -28,6 +28,23 @@ namespace Fuse.URMStore
         }
 
         [Foreign(Language.ObjC)]
+        public static string GetEncryptedReceiptAsBase64()
+        @{
+            NSURL* receiptURL = (NSURL*)@{GetReceiptUrl():Call()};
+            if (![[NSFileManager defaultManager] fileExistsAtPath:[receiptURL path]])
+                return NULL;
+            NSData* receiptData = [NSData dataWithContentsOfURL:receiptURL];
+            NSString* b64 = [receiptData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
+            return b64;
+        @}
+
+        [Foreign(Language.ObjC)]
+        public static ObjC.Object GetReceiptUrl()
+        @{
+            return [[NSBundle mainBundle] appStoreReceiptURL];
+        @}
+
+
         static bool GetCanMakePayments()
         @{
             return RMStore.canMakePayments;

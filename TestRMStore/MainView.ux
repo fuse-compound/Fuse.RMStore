@@ -57,6 +57,12 @@
             console.log(JSON.stringify(RMStore.getReceiptTransactions()));
         };
 
+        module.exports.getEncryptedReceiptAsBase64 = function()
+        {
+            console.log("- Encrypted Receipt As Base64 -");
+            console.log(RMStore.getEncryptedReceiptAsBase64());
+        };
+
         module.exports.dummy = function()
         {
             console.log("- HOOOOOOO -");
@@ -72,6 +78,7 @@
                 <Button Text="Request Products" Clicked="{requestProducts}" Height="100" />
                 <Button Text="Add Payment" Clicked="{addPayment}" Height="100" />
                 <Button Text="Restore Transactions" Clicked="{restoreTransactions}" Height="100" />
+                <Button Text="GetEncryptedReceiptAsBase64" Clicked="{getEncryptedReceiptAsBase64}" Height="100" />
                 <Button Text="4" Clicked="{dummy}" Height="60" />
             </StackPanel>
         </ScrollView>
