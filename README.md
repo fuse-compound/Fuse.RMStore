@@ -2,7 +2,7 @@
 
 A wrapper for the frankly delightful RMStore library.
 
-This allows you to make & manage in-app purchases from on iOS
+This allows you to make & manage in-app purchases on iOS
 
 See [here for the User Guide](https://github.com/fusetools/Fuse.RMStore/wiki/User-Guide)
 
