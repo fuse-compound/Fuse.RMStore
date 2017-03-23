@@ -97,7 +97,7 @@ namespace Fuse.URMStore
         public RestoreTransactions(string applicationUsername)
         @{
             [[RMStore defaultStore] restoreTransactionsOfUser:applicationUsername
-             OnSuccess:^(NSArray *transactions){
+             onSuccess:^(NSArray *transactions){
                 @{RestoreTransactions:Of(_this).Resolve(ObjC.Object):Call(transactions)};
             } failure:^(NSError *error) {
                 @{RestoreTransactions:Of(_this).Reject(string):Call(@"failed")};

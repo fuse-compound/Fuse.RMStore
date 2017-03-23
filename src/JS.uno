@@ -21,7 +21,7 @@ namespace Fuse.URMStore
         public URMStoreModule()
         {
             if(_instance != null) return;
-            Resource.SetGlobalKey(_instance = this, "RMStore");
+            Uno.UX.Resource.SetGlobalKey(_instance = this, "RMStore");
 
             Core.Init();
             if defined(iOS)

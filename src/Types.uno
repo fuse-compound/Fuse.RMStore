@@ -200,14 +200,18 @@ namespace Fuse.URMStore
 
 
     [ForeignInclude(Language.ObjC, "RMStore.h")]
+    [Require("Source.Include", "RMAppReceipt.h")]
     extern(iOS)
     public class ReceiptTransactionInfo
     {
-        ObjC.Object _handle; //RMAppReceiptIAP*
+        [ForeignTypeName("RMAppReceiptIAP*")]
+        class RMAppReceiptIAP : ObjC.Object { }
+
+        RMAppReceiptIAP _handle;
 
         public ReceiptTransactionInfo(ObjC.Object handle)
         {
-            _handle = handle;
+            _handle = (RMAppReceiptIAP)handle;
         }
         // this is only so we can map over it to make new instances
         public static ReceiptTransactionInfo Create(ObjC.Object handle)
