@@ -1,6 +1,6 @@
 <App>
     <JavaScript>
-		var Observable = require("FuseJS/Observable");
+        var Observable = require("FuseJS/Observable");
         var RMStore = require("RMStore");
 
         module.exports.requestProducts = function()

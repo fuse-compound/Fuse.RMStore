@@ -11,17 +11,17 @@ using Fuse.Reactive;
 
 namespace Fuse.URMStore
 {
-	/**
-	*/
-	[UXGlobalModule]
-	public sealed class URMStoreModule : NativeModule
-	{
-		static readonly URMStoreModule _instance;
+    /**
+    */
+    [UXGlobalModule]
+    public sealed class URMStoreModule : NativeModule
+    {
+        static readonly URMStoreModule _instance;
 
-		public URMStoreModule()
-		{
-			if(_instance != null) return;
-			Resource.SetGlobalKey(_instance = this, "RMStore");
+        public URMStoreModule()
+        {
+            if(_instance != null) return;
+            Resource.SetGlobalKey(_instance = this, "RMStore");
 
             Core.Init();
             if defined(iOS)
@@ -40,7 +40,7 @@ namespace Fuse.URMStore
                               "restoreTransactions", RestoreTransactions, ListOfSKPaymentTransactionInfoToJS));
                 AddMember(new NativePromise<string, string>("refreshReceipt", RefreshReceipt));
             }
-		}
+        }
 
         //----------------------------------------------------------------------
 
@@ -102,10 +102,10 @@ namespace Fuse.URMStore
         }
 
         extern(iOS)
-		public static Scripting.Array ListOfSKPaymentTransactionInfoToJS(Context c, IList<SKPaymentTransactionInfo> results)
-		{
-			return Helpers.MapToJS<SKPaymentTransactionInfo>(c, SKPaymentTransactionInfoToJS, results);
-		}
+        public static Scripting.Array ListOfSKPaymentTransactionInfoToJS(Context c, IList<SKPaymentTransactionInfo> results)
+        {
+            return Helpers.MapToJS<SKPaymentTransactionInfo>(c, SKPaymentTransactionInfoToJS, results);
+        }
 
         //----------------------------------------------------------------------
 
@@ -155,13 +155,13 @@ namespace Fuse.URMStore
         }
 
         extern(iOS)
-		public static Scripting.Object ListOfSKProductInformationToJS(Context c, KeyValuePair<IList<SKProductInformation>, IList<string>> result)
-		{
+        public static Scripting.Object ListOfSKProductInformationToJS(Context c, KeyValuePair<IList<SKProductInformation>, IList<string>> result)
+        {
             var queryResult = c.NewObject();
             queryResult["valid"] = Helpers.MapToJS<SKProductInformation>(c, SKProductInformationToJS, result.Key);
             queryResult["invalid"] = Helpers.ToJSArr<string>(c, result.Value);
-			return queryResult;
-		}
+            return queryResult;
+        }
 
         extern(iOS)
         public static Scripting.Object SKProductInformationToJS(Context c, SKProductInformation pid)
@@ -174,5 +174,5 @@ namespace Fuse.URMStore
             res["localizedTitle"] = pid.LocalizedTitle;
             return res;
         }
-	}
+    }
 }
