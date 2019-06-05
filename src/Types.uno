@@ -204,14 +204,13 @@ namespace Fuse.URMStore
     extern(iOS)
     public class ReceiptTransactionInfo
     {
-        [ForeignTypeName("RMAppReceiptIAP*")]
-        class RMAppReceiptIAP : ObjC.Object { }
+        // RMAppReceiptIAP*
 
-        RMAppReceiptIAP _handle;
+        ObjC.Object _handle;
 
         public ReceiptTransactionInfo(ObjC.Object handle)
         {
-            _handle = (RMAppReceiptIAP)handle;
+            _handle = handle;
         }
         // this is only so we can map over it to make new instances
         public static ReceiptTransactionInfo Create(ObjC.Object handle)
@@ -224,7 +223,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         int GetQuantity()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} quantity];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} quantity];
         @}
 
         public string ProductIdentifier { get { return GetProductIdentifier(); } }
@@ -232,7 +231,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         string GetProductIdentifier()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} productIdentifier];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} productIdentifier];
         @}
 
         public string TransactionIdentifier { get { return GetTransactionIdentifier(); } }
@@ -240,7 +239,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         string GetTransactionIdentifier()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} transactionIdentifier];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} transactionIdentifier];
         @}
 
         public string OriginalTransactionIdentifier { get { return GetOriginalTransactionIdentifier(); } }
@@ -248,7 +247,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         string GetOriginalTransactionIdentifier()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} originalTransactionIdentifier];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} originalTransactionIdentifier];
         @}
 
         public string PurchaseDate { get { return Helpers.NSDateToUTCISO(GetPurchaseDate()); } }
@@ -256,7 +255,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         ObjC.Object GetPurchaseDate()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} purchaseDate];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} purchaseDate];
         @}
 
         public string OriginalPurchaseDate { get { return Helpers.NSDateToUTCISO(GetOriginalPurchaseDate()); } }
@@ -264,7 +263,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         ObjC.Object GetOriginalPurchaseDate()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} originalPurchaseDate];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} originalPurchaseDate];
         @}
 
         public string SubscriptionExpirationDate { get { return Helpers.NSDateToUTCISO(GetSubscriptionExpirationDate()); } }
@@ -272,7 +271,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         ObjC.Object GetSubscriptionExpirationDate()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} subscriptionExpirationDate];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} subscriptionExpirationDate];
         @}
 
         public string CancellationDate { get { return Helpers.NSDateToUTCISO(GetCancellationDate()); } }
@@ -280,7 +279,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         ObjC.Object GetCancellationDate()
         @{
-            return [@{ReceiptTransactionInfo:Of(_this)._handle} cancellationDate];
+            return [(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} cancellationDate];
         @}
 
         public int WebOrderLineItemID { get { return GetWebOrderLineItemID(); } }
@@ -288,7 +287,7 @@ namespace Fuse.URMStore
         [Foreign(Language.ObjC)]
         int GetWebOrderLineItemID()
         @{
-            NSInteger liid = (NSInteger)[@{ReceiptTransactionInfo:Of(_this)._handle} webOrderLineItemID];
+            NSInteger liid = (NSInteger)[(RMAppReceiptIAP*)@{ReceiptTransactionInfo:Of(_this)._handle} webOrderLineItemID];
             return (@{int})liid;
         @}
     }
